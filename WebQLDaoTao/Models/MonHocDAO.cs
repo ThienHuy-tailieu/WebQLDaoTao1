@@ -35,5 +35,36 @@ namespace WebQLDaoTao.Models
             }
             return dsMonHoc;
         }
+        //--------phuong thuc cap nhat thong tin mon hoc-----------------
+        public int Update(string mamh, string tenmh, int sotiet)
+        {
+            //1.Mo ket noi CSDL
+            SqlConnection conn = new
+            SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr"].ConnectionString);
+            conn.Open();
+            //2.tao truy van
+            SqlCommand cmd = new SqlCommand("update monhoc set tenmh=@tenmh, sotiet=@sotiet where mamh = @mamh", conn);
+            cmd.Parameters.AddWithValue("@tenmh", tenmh);
+            cmd.Parameters.AddWithValue("@sotiet", sotiet);
+            cmd.Parameters.AddWithValue("@mamh", mamh);
+            //3.thuc thi ket qua;
+            return cmd.ExecuteNonQuery();
+        }
+
+        //-----dinh nghia các phương thức thực hiện các thao tác khác -----
+        //them
+        //xoa
+        public int Delete(string mamh)
+        {
+            //1.Mo ket noi CSDL
+            SqlConnection conn = new
+            SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr"].ConnectionString);
+            conn.Open();
+            //2.tao truy van
+            SqlCommand cmd = new SqlCommand("delete from monhoc where mamh=@mamh", conn);
+            cmd.Parameters.AddWithValue("@mamh", mamh);
+            //3.thuc thi ket qua;
+            return cmd.ExecuteNonQuery();
+        }
     }
 }
