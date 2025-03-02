@@ -71,5 +71,31 @@ namespace WebQLDaoTao
                 Response.Write("<script> alert('Không thể xóa môn học này')</script>");
             }
         }
+
+        protected void btThem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //lay thong tin mon hoc can them
+                string mamh = txtMaMH.Text;
+                string tenmh = txtTenMH.Text;
+                int sotiet = int.Parse(txtSoTiet.Text);
+                if (mhDAO.findById(mamh) != null)
+                {
+                    lbThongBao.Text = "Mã môn học đã tồn tại. Chọn mã khác nhé";
+                    return;
+                }
+                //goi phuong thuc them mon hoc vao CSDL cua lop MonHocDAO
+                mhDAO.Insert(mamh, tenmh, sotiet);//lenh them du lieu
+                lbThongBao.Text = "Đã thêm 1 môn học";
+            }
+            catch (Exception ex)
+            {
+                lbThongBao.Text = "Thao tác thêm môn học không thành công do lỗi dữ liệu";
+            }
+            //liên kết dữ liệu cho gvMonHoc
+            gvMonhoc.DataSource = mhDAO.getAll();
+            gvMonhoc.DataBind();
+        }
     }
 }
