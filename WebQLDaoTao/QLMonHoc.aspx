@@ -1,47 +1,58 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="QLMonHoc.aspx.cs" Inherits="WebQLDaoTao.QLMonHoc" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Main" runat="server">
-    <h4>THÊM MỚI MÔN HỌC</h4>
-    <hr>
-    <div class="form-horizontal">
-        <div class="form-group">
-            <label class="control-label col-sm-2">Mã môn:</label>
-            <div class="col-sm-10">
-                <asp:TextBox ID="txtMaMH" runat="server" CssClass="form-control"></asp:TextBox>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-sm-2">Tên môn</label>
-            <div class="col-sm-10">
-                <asp:TextBox ID="txtTenMH" runat="server" CssClass="form-control"></asp:TextBox>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2">Số tiết</label>
-            <div class="col-sm-10">
-                <asp:TextBox ID="txtSoTiet" runat="server" CssClass="form-control"></asp:TextBox>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <asp:Button ID="btThem" runat="server" Text="Thêm" CssClass="btn btn-info" OnClick="btThem_Click" />
-            </div>
-        </div>
-        <asp:Label ID="lbThongBao" ForeColor="#cc3300" runat="server" Text=""></asp:Label>
-    </div>
+    
     <h2>QUẢN LÝ MÔN HỌC</h2>
     <hr />
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Thêm môn học</button>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Thêm môn học</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3 row">
+                        <label for="txtMaMH" class="col-sm-2 col-form-label">Mã môn học</label>
+                        <div class="col-sm-6">
+                            <asp:TextBox ID="txtMaMH" runat="server" CssClass="form-control"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="txtTenMon" class="col-sm-2 col-form-label">Tên môn học</label>
+                        <div class="col-sm-6">
+                            <asp:TextBox ID="txtTenMon" runat="server" CssClass="form-control"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="txtSoTiet" class="col-sm-2 col-form-label">Số tiết</label>
+                        <div class="col-sm-6">
+                            <asp:TextBox ID="txtSoTiet" runat="server" CssClass="form-control"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button ID="Button1" OnClick="btnThem_Click" runat="server" Text="Lưu" CssClass="btn btn-primary" />
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-2">
         </div>
         <div class="col-md-10">
             <h4>DANH SÁCH MÔN HỌC</h4>
-            <asp:GridView CssClass="table table-bordered"
-                ID="gvMonhoc" runat="server" AutoGenerateColumns="false" DataKeyNames="MaMH" 
-                OnRowEditing="gvMonHoc_RowEditing" OnRowCancelingEdit="gvMonhoc_RowCancelingEdit" OnRowUpdating="gvMonhoc_RowUpdating" OnRowDeleting="gvMonHoc_RowDeleting"
-                AllowPaging="true" PageSize="10">
+            <asp:GridView CssClass="table table-bordered table-hover"
+                ID="gvMonhoc" runat="server" AutoGenerateColumns="false" DataKeyNames="MaMH"
+                OnRowEditing="gvMonHoc_RowEditing"
+                OnRowCancelingEdit="gvMonhoc_RowCancelingEdit"
+                OnRowUpdating="gvMonhoc_RowUpdating"
+                OnRowDeleting="gvMonHoc_RowDeleting"
+                AllowPaging="true" PageSize="5" OnPageIndexChanging="gvMonhoc_PageIndexChanging">
                 <Columns>
                     <asp:BoundField HeaderText="Mã môn học" DataField="MaMH" />
                     <asp:BoundField HeaderText="Tên môn học" DataField="TenMH" />
@@ -62,6 +73,7 @@
                     </asp:TemplateField>
                 </columns>
                 <headerstyle backcolor="#003399" forecolor="#ffffff" />
+                <PagerStyle CssClass="pagination-ys" HorizontalAlign="Center" />
             </asp:GridView>
         </div>
     </div>

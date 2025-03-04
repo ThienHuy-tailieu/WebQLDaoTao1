@@ -40,7 +40,7 @@ namespace WebQLDaoTao.Models
         {
             //1.Mo ket noi CSDL
             SqlConnection conn = new
-            SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr"].ConnectionString);
+            SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr1"].ConnectionString);
             conn.Open();
             //2.tao truy van
             SqlCommand cmd = new SqlCommand("update monhoc set tenmh=@tenmh, sotiet=@sotiet where mamh = @mamh", conn);
@@ -58,7 +58,7 @@ namespace WebQLDaoTao.Models
         {
             //1.Mo ket noi CSDL
             SqlConnection conn = new
-            SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr"].ConnectionString);
+            SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr1"].ConnectionString);
             conn.Open();
             //2.tao truy van
             SqlCommand cmd = new SqlCommand("delete from monhoc where mamh=@mamh", conn);
@@ -71,7 +71,7 @@ namespace WebQLDaoTao.Models
         {
             //1.Mo ket noi CSDL
             SqlConnection conn = new
-            SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr"].ConnectionString);
+            SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr1"].ConnectionString);
             conn.Open();
             //2.tao truy van
             SqlCommand cmd = new SqlCommand("insert into monhoc (mamh, tenmh,sotiet) values (@mamh,@tenmh,@sotiet)", conn);
@@ -87,7 +87,7 @@ namespace WebQLDaoTao.Models
             MonHoc kq = null;
             //1.Mo ket noi CSDL
             SqlConnection conn = new
-            SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr"].ConnectionString);
+            SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr1"].ConnectionString);
             conn.Open();
             //2.tao truy van
             SqlCommand cmd = new SqlCommand("select * from Monhoc where mamh=@mamh", conn);

@@ -24,13 +24,13 @@ namespace WebQLDaoTao
         protected global::System.Web.UI.WebControls.TextBox txtMaMH;
 
         /// <summary>
-        /// txtTenMH control.
+        /// txtTenMon control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTenMH;
+        protected global::System.Web.UI.WebControls.TextBox txtTenMon;
 
         /// <summary>
         /// txtSoTiet control.
@@ -42,22 +42,13 @@ namespace WebQLDaoTao
         protected global::System.Web.UI.WebControls.TextBox txtSoTiet;
 
         /// <summary>
-        /// btThem control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btThem;
-
-        /// <summary>
-        /// lbThongBao control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbThongBao;
+        protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
         /// gvMonhoc control.

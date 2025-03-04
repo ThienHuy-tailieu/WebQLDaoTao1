@@ -15,28 +15,25 @@ namespace WebQLDaoTao
         {
             if (!Page.IsPostBack)
             {
-                //lien ket du lieu cho gvMonhoc
-                gvMonhoc.DataSource = mhDAO.getAll();
-                gvMonhoc.DataBind();
+                LienKetDuLieu();
             }
+        }
+        private void LienKetDuLieu()
+        {
+            gvMonhoc.DataSource = mhDAO.getAll();
+            gvMonhoc.DataBind();
         }
 
         protected void gvMonHoc_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            //chuyen doi trang thai cua dong hien hanh : từ chế độ xem sang chế độ sửa
             gvMonhoc.EditIndex = e.NewEditIndex;
-            //lien ket lai du lieu cho gvMonHoc
-            gvMonhoc.DataSource = mhDAO.getAll();
-            gvMonhoc.DataBind();
+            LienKetDuLieu();
         }
-
         protected void gvMonhoc_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             //chuyen doi trang thai cua dong hien hanh : từ chế độ sửa(edit) sang chế độ xem
             gvMonhoc.EditIndex = -1;
-            //lien ket lai du lieu cho gvMonHoc
-            gvMonhoc.DataSource = mhDAO.getAll();
-            gvMonhoc.DataBind();
+            LienKetDuLieu();
         }
 
         protected void gvMonhoc_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -49,9 +46,7 @@ namespace WebQLDaoTao
             mhDAO.Update(mamh, tenmh, sotiet);
             //b3. chuyen doi trang thai cua dong hien hanh : từ chế độ sửa(edit) sang chế độ xem
             gvMonhoc.EditIndex = -1;
-            //b4. lien ket lai du lieu cho gvMonHoc
-            gvMonhoc.DataSource = mhDAO.getAll();
-            gvMonhoc.DataBind();
+            LienKetDuLieu();
         }
 
         protected void gvMonHoc_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -62,9 +57,7 @@ namespace WebQLDaoTao
                 string mamh = gvMonhoc.DataKeys[e.RowIndex].Value.ToString();
                 //b2. goi phương thức xóa môn học khỏi CSDL của lớp MonHocDAO
                 mhDAO.Delete(mamh);
-                //b4. lien ket lai du lieu cho gvMonHoc
-                gvMonhoc.DataSource = mhDAO.getAll();
-                gvMonhoc.DataBind();
+                LienKetDuLieu();
             }
             catch (Exception ex)
             {
@@ -72,30 +65,23 @@ namespace WebQLDaoTao
             }
         }
 
-        protected void btThem_Click(object sender, EventArgs e)
+        protected void btnThem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                //lay thong tin mon hoc can them
-                string mamh = txtMaMH.Text;
-                string tenmh = txtTenMH.Text;
-                int sotiet = int.Parse(txtSoTiet.Text);
-                if (mhDAO.findById(mamh) != null)
-                {
-                    lbThongBao.Text = "Mã môn học đã tồn tại. Chọn mã khác nhé";
-                    return;
-                }
-                //goi phuong thuc them mon hoc vao CSDL cua lop MonHocDAO
-                mhDAO.Insert(mamh, tenmh, sotiet);//lenh them du lieu
-                lbThongBao.Text = "Đã thêm 1 môn học";
-            }
-            catch (Exception ex)
-            {
-                lbThongBao.Text = "Thao tác thêm môn học không thành công do lỗi dữ liệu";
-            }
-            //liên kết dữ liệu cho gvMonHoc
-            gvMonhoc.DataSource = mhDAO.getAll();
-            gvMonhoc.DataBind();
+            string mamh = txtMaMH.Text;
+            string tenmh = txtTenMon.Text;
+            int sotiet = int.Parse(txtSoTiet.Text);
+
+            
+            //Gọi phương thức thêm mới
+            mhDAO.Insert(mamh,tenmh,sotiet);
+            //load lại dữ liệu
+            LienKetDuLieu();
+        }
+
+        protected void gvMonhoc_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvMonhoc.PageIndex = e.NewPageIndex;
+            LienKetDuLieu();
         }
     }
 }
