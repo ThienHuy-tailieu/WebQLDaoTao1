@@ -17,8 +17,7 @@ namespace WebQLDaoTao
             if (!Page.IsPostBack)
             {
                 //lien ket du lieu cho gvKhoa
-                gvKhoa.DataSource = khDAO.getAll();
-                gvKhoa.DataBind();
+                LienKetDuLieu();
             }
         }
 
@@ -35,8 +34,7 @@ namespace WebQLDaoTao
             khDAO.Insert(makh, tenkh);
             lbThongBao.Text = "Đã thêm 1 khoa";
             //liên kết dữ liệu cho gvkhoa
-            gvKhoa.DataSource = khDAO.getAll();
-            gvKhoa.DataBind();
+            LienKetDuLieu();
         }
 
         protected void gvKhoa_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -48,8 +46,7 @@ namespace WebQLDaoTao
                 //thực hiện xóa khoa theo mã khoa
                 khDAO.Delete(makh);
                 //liên kết lại dữ liệu cho gvKhoa
-                gvKhoa.DataSource = khDAO.getAll();
-                gvKhoa.DataBind();
+                LienKetDuLieu();
             }
             catch (Exception ex)
             {
@@ -61,15 +58,13 @@ namespace WebQLDaoTao
         {
             gvKhoa.EditIndex = e.NewEditIndex;
             //liên kết lại dữ liệu cho gvKhoa
-            gvKhoa.DataSource = khDAO.getAll();
-            gvKhoa.DataBind();
+            LienKetDuLieu();
         }
 
         protected void gvKhoa_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             gvKhoa.EditIndex = -1;
-            gvKhoa.DataSource = khDAO.getAll();
-            gvKhoa.DataBind();
+            LienKetDuLieu();
         }
 
         protected void gvKhoa_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -81,6 +76,17 @@ namespace WebQLDaoTao
             khDAO.Update(makh, tenkh);
             gvKhoa.EditIndex = -1;
             //lien ket lai du lieu
+            LienKetDuLieu();
+        }
+
+        protected void gvKhoa_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvKhoa.PageIndex = e.NewPageIndex;
+            LienKetDuLieu();
+        }
+
+        private void LienKetDuLieu()
+        {
             gvKhoa.DataSource = khDAO.getAll();
             gvKhoa.DataBind();
         }

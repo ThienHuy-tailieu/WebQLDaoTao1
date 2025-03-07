@@ -16,19 +16,8 @@ namespace WebQLDaoTao
         {
             if (!Page.IsPostBack)
             {
-                //khoi tao du lieu cho ddlKhoa
-                ddlMakhoa.DataSource = khDao.getAll();
-                ddlMakhoa.DataTextField = "TenKH";
-                ddlMakhoa.DataValueField = "Makh";
-                ddlMakhoa.DataBind();
-                //lien ket du lieu cho gvSinhVien
-                LienKetDuLieuLuoiSinhVien();
+                
             }
-        }
-        private void LienKetDuLieuLuoiSinhVien()
-        {
-            gvSinhvien.DataSource = svDao.getAll();
-            gvSinhvien.DataBind();
         }
     }
 }

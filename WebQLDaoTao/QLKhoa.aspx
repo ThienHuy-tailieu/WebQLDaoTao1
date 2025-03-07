@@ -1,41 +1,49 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="QLKhoa.aspx.cs" Inherits="WebQLDaoTao.QLKhoa" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="Contents/pagination.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Main" runat="server">
     <h2>TRANG QUẢN TRỊ KHOA </h2>
     <hr />
-    <h4>THÊM MỚI KHOA</h4>
-    <hr>
-    <div class="form-horizontal">
-        <div class="form-group">
-            <label class="control-label col-sm-2">Mã khoa:</label>
-            <div class="col-sm-10">
-                <asp:TextBox ID="txtMaKH" runat="server" CssClass="form-control"></asp:TextBox>
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Thêm khoa</button>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Thêm khoa</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3 row">
+                        <label for="txtMaMH" class="col-sm-2 col-form-label">Mã khoa</label>
+                        <div class="col-sm-6">
+                            <asp:TextBox ID="txtMaKH" runat="server" CssClass="form-control"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="txtTenMon" class="col-sm-2 col-form-label">Tên khoa</label>
+                        <div class="col-sm-6">
+                            <asp:TextBox ID="txtTenKH" runat="server" CssClass="form-control"></asp:TextBox>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <asp:Button ID="btThem" OnClick="btThem_Click" runat="server" Text="Lưu" CssClass="btn btn-primary" />
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                <asp:Label ID="lbThongBao" ForeColor="#cc3300" runat="server"
+                    Text=""></asp:Label>
             </div>
         </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2">Tên khoa</label>
-            <div class="col-sm-10">
-
-                <asp:TextBox ID="txtTenKH" runat="server" CssClass="form-control"></asp:TextBox>
-
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <asp:Button ID="btThem" runat="server" Text="Thêm" CssClass="btn btn-info" OnClick="btThem_Click" />
-            </div>
-        </div>
-
-        <asp:Label ID="lbThongBao" ForeColor="#cc3300" runat="server"
-            Text=""></asp:Label>
     </div>
     <div>
         <h4>DANH SÁCH CÁC KHOA</h4>
-        <hr>
-        <asp:GridView ID="gvKhoa" DataKeyNames="MaKH" CssClass="table table-bordered" runat="server"
-            AutoGenerateColumns="false" OnRowDeleting="gvKhoa_RowDeleting" OnRowEditing="gvKhoa_RowEditing" OnRowCancelingEdit="gvKhoa_RowCancelingEdit" OnRowUpdating="gvKhoa_RowUpdating">
+        <asp:GridView ID="gvKhoa" DataKeyNames="MaKH" CssClass="table table-bordered table-hover" runat="server"
+            AutoGenerateColumns="false" OnRowDeleting="gvKhoa_RowDeleting"
+            OnRowEditing="gvKhoa_RowEditing" OnRowCancelingEdit="gvKhoa_RowCancelingEdit" OnRowUpdating="gvKhoa_RowUpdating"
+            AllowPaging="True" PageSize="5" OnPageIndexChanging="gvKhoa_PageIndexChanging">
             <Columns>
                 <asp:BoundField HeaderText="Mã khoa" DataField="MaKH" />
                 <asp:BoundField HeaderText="Tên khoa" DataField="TenKH" />
@@ -55,6 +63,7 @@
                     </EditItemTemplate>
                 </asp:TemplateField>
             </Columns>
+            <PagerStyle CssClass="pagination-ys" HorizontalAlign="Center" />
             <HeaderStyle BackColor="#99ccff" />
         </asp:GridView>
     </div>

@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="QLMonHoc.aspx.cs" Inherits="WebQLDaoTao.QLMonHoc" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
+    <link href="Contents/pagination.css" rel="stylesheet" />    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Main" runat="server">
     
@@ -41,10 +41,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-2">
-        </div>
-        <div class="col-md-10">
+        <div>
             <h4>DANH SÁCH MÔN HỌC</h4>
             <asp:GridView CssClass="table table-bordered table-hover"
                 ID="gvMonhoc" runat="server" AutoGenerateColumns="false" DataKeyNames="MaMH"
@@ -71,8 +68,9 @@
                                 Text="Không" CssClass="btn btn-danger" />
                         </EditItemTemplate>
                     </asp:TemplateField>
-                </columns>
-                <headerstyle backcolor="#003399" forecolor="#ffffff" />
+                </Columns>
+                
+                <HeaderStyle BackColor="#003399" ForeColor="#ffffff" />
                 <PagerStyle CssClass="pagination-ys" HorizontalAlign="Center" />
             </asp:GridView>
         </div>
