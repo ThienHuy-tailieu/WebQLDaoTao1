@@ -54,7 +54,7 @@
                     <asp:BoundField HeaderText="Mã môn học" DataField="MaMH" />
                     <asp:BoundField HeaderText="Tên môn học" DataField="TenMH" />
                     <asp:BoundField HeaderText="Số tiết" DataField="SoTiet" />
-                    <asp:TemplateField>
+                    <asp:TemplateField ItemStyle-CssClass="col-sm-2">
                         <ItemTemplate>
                             <asp:Button ID="btEdit" CommandName="Edit" runat="server" Text="Sửa"
                                 CssClass="btn btn-success" />
@@ -70,7 +70,7 @@
                     </asp:TemplateField>
                 </Columns>
                 
-                <HeaderStyle BackColor="#003399" ForeColor="#ffffff" />
+                <HeaderStyle BackColor="#99ccff" />
                 <PagerStyle CssClass="pagination-ys" HorizontalAlign="Center" />
             </asp:GridView>
         </div>

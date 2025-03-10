@@ -47,7 +47,7 @@
             <Columns>
                 <asp:BoundField HeaderText="Mã khoa" DataField="MaKH" />
                 <asp:BoundField HeaderText="Tên khoa" DataField="TenKH" />
-                <asp:TemplateField HeaderText="Chọn tác vụ">
+                <asp:TemplateField ItemStyle-CssClass="col-sm-2">
                     <ItemTemplate>
                         <asp:Button ID="btEdit" CommandName="Edit" runat="server"
                             Text="Sửa" CssClass="btn btn-success" />
