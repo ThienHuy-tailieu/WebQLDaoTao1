@@ -13,7 +13,7 @@ namespace WebQLDaoTao.Models
         {
             //1.Mo ket noi CSDL
             SqlConnection conn = new
-            SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr"].ConnectionString);
+            SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr1"].ConnectionString);
             conn.Open();
             //2.tao truy van
             SqlCommand cmd = new SqlCommand("insert into sinhvien (masv, hosv, tensv, gioitinh, ngaysinh, noisinh, diachi, makh) values(@masv, @hosv, @tensv, @gioitinh, @ngaysinh, @noisinh, @diachi, @makh)",conn);

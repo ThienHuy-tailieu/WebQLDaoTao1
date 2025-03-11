@@ -99,8 +99,10 @@
                 <asp:BoundField DataField="NoiSinh" HeaderText="Nơi Sinh" />
                 <asp:BoundField DataField="DiaChi" HeaderText="Địa Chỉ" SortExpression="DiaChi" />
                 <asp:BoundField DataField="MaKH" HeaderText="Khoa" SortExpression="MaKH" ControlStyle-Width="80px" />
-                <asp:CommandField ShowEditButton="true" ButtonType="Button" EditText="Sửa"
-                    ShowDeleteButton="true" DeleteText="Xóa" UpdateText="Ghi" CancelText="Không" ItemStyle-Wrap="false" />
+                <asp:CommandField ShowEditButton="true" ButtonType="Image" EditText="Sửa"
+                    ShowDeleteButton="true" DeleteText="Xóa" UpdateText="Ghi" CancelText="Không" ItemStyle-Wrap="false" 
+                    EditImageUrl="~/Contents/Images/edit.gif" DeleteImageUrl="~/Contents/Images/delete.gif" 
+                    UpdateImageUrl="~/Contents/Images/OK.gif" CancelImageUrl="~/Contents/Images/Cancel.gif" />
             </Columns>
             <PagerStyle CssClass="pagination-ys" HorizontalAlign="Center" />
             <HeaderStyle BackColor="#99ccff" />

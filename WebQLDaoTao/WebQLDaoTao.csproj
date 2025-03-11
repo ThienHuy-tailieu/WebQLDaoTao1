@@ -67,6 +67,46 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Contents\Images\Add.gif" />
+    <Content Include="Contents\Images\AddB.gif" />
+    <Content Include="Contents\Images\Article.gif" />
+    <Content Include="Contents\Images\Cancel.gif" />
+    <Content Include="Contents\Images\delete.gif" />
+    <Content Include="Contents\Images\disk.gif" />
+    <Content Include="Contents\Images\dn.gif" />
+    <Content Include="Contents\Images\edit.gif" />
+    <Content Include="Contents\Images\email.gif" />
+    <Content Include="Contents\Images\Function.gif" />
+    <Content Include="Contents\Images\GoBack.gif" />
+    <Content Include="Contents\Images\Group.gif" />
+    <Content Include="Contents\Images\Help.gif" />
+    <Content Include="Contents\Images\Home.gif" />
+    <Content Include="Contents\Images\icon4.gif" />
+    <Content Include="Contents\Images\icon_users.gif" />
+    <Content Include="Contents\Images\Info.gif" />
+    <Content Include="Contents\Images\key.gif" />
+    <Content Include="Contents\Images\Learning.gif" />
+    <Content Include="Contents\Images\lock.gif" />
+    <Content Include="Contents\Images\lt.gif" />
+    <Content Include="Contents\Images\manager.gif" />
+    <Content Include="Contents\Images\OK.gif" />
+    <Content Include="Contents\Images\Orange_Learning.gif" />
+    <Content Include="Contents\Images\plugin.gif" />
+    <Content Include="Contents\Images\PortalSettings.gif" />
+    <Content Include="Contents\Images\printButton.png" />
+    <Content Include="Contents\Images\Properties.gif" />
+    <Content Include="Contents\Images\Publish.gif" />
+    <Content Include="Contents\Images\Question.gif" />
+    <Content Include="Contents\Images\Reset.gif" />
+    <Content Include="Contents\Images\rt.gif" />
+    <Content Include="Contents\Images\Security.gif" />
+    <Content Include="Contents\Images\Settings.gif" />
+    <Content Include="Contents\Images\SmallDownload.gif" />
+    <Content Include="Contents\Images\SmallDownload02.gif" />
+    <Content Include="Contents\Images\up.gif" />
+    <Content Include="Contents\Images\User.gif" />
+    <Content Include="Contents\Images\User_Deactive.gif" />
+    <Content Include="Contents\Images\view.gif" />
     <Content Include="Contents\pagination.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -133,6 +173,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Contents\Images\Thumbs.db" />
     <None Include="packages.config" />
     <Content Include="Site.Master" />
     <None Include="Web.Debug.config">

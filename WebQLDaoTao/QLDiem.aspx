@@ -25,10 +25,9 @@
 
                     <asp:TextBox ID="txtDiem" runat="server" Text='<%# Eval("diem") %>' CssClass="form-control" ></asp:TextBox>
                     
-                   
                 </ItemTemplate>
                 <FooterTemplate>
-                    <asp:Button ID="btLuu" runat="server" Text="Lưu điểm" CssClass="btn btn-success" />
+                    <asp:Button ID="btLuu" runat="server" Text="Lưu điểm" CssClass="btn btn-success" OnClick="btLuu_Click" />
                 </FooterTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Chọn">
