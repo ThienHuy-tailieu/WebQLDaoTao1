@@ -14,7 +14,7 @@
             <label for="pwd">Password:</label>
             <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="pagination-ys"></asp:TextBox>
         </div>
-        <asp:Button ID="btLogin" runat="server" Text="Login" CssClass="btn btn-default" OnClick="btLogin_Click" />
+        <asp:Button ID="btLogin" runat="server" Text="Đăng Nhập" CssClass="btn btn-default" OnClick="btLogin_Click" />
         <br />
 
         <br />

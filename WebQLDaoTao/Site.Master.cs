@@ -12,11 +12,12 @@ namespace WebQLDaoTao
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
-        protected void btLogout_Click(object sender, EventArgs e)
+        protected void btnLogout_Click(object sender, EventArgs e)
         {
+
             FormsAuthentication.SignOut();
             Response.Redirect("Default.aspx");
         }
