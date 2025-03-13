@@ -47,7 +47,9 @@
                             </ul>
                         </li>
                         <li><a href="QLDiem.aspx">Quản lý điểm thi</a></li>
+                        <li><asp:LinkButton ID="btLogout" runat="server" OnClick="btLogout_Click">Logout</asp:LinkButton></li>
                     </ul>
+                    
                 </div>
             </div>
         </nav>
